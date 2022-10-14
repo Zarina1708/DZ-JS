@@ -1,13 +1,19 @@
 // задача 1
-//введите столбец чисел от 1 до 50, при помощи циклов while и for
-let num = 1;
-while (num < 51) {
-    console.log(num);
-    num++;
+// напишите поведение кнопки по нажатию на нее (она выводит алертом содержимое инпута)
+function effect() {
+    var input = document.getElementById("but");
+    alert(input.value);
 }
 
 // задача 2
-// дан массив с элементами 'Привет,', 'мир' и '!'. Необходимо вывести на экран фразу 'ПРИВЕТ, МИР!'.
+// Повторите поведение кнопки по нажатию на нее (она осуществляет обмен содержимым между двумя инпутами, можете понажимать на нее несколько раз или вручную сменить содержимое инпутов)
+function buttonClick() {
+    var input1 = document.getElementById("input1");
+    var input2 = document.getElementById("input2");
 
-var arr = ['Привет,', 'мир', '!'];
-alert(arr[0] + arr[1] + arr[2]);
+    var item1 = input1.value;
+    var item2 = input2.value;
+    
+    input1.value = item2;
+    input2.value = item1;
+}
