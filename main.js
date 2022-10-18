@@ -1,19 +1,20 @@
-// задача 1
-// напишите поведение кнопки по нажатию на нее (она выводит алертом содержимое инпута)
-function effect() {
-    var input = document.getElementById("but");
-    alert(input.value);
+function add_item() {
+    let item = document.getElementById("box");
+    let list_item = document.getElementById("list_item");
+    if (item.value != "") {
+        let make_li = document.createElement("LI");
+        make_li.appendChild(document.createTextNode(item.value));
+        list_item.appendChild(make_li);
+        item.value = "";
+        make_li.onclick = function () {
+            this.parentNode.removeChild(this);
+        };
+    } else {
+        alert("добавьте задачу!");
+    }
 }
 
-// задача 2
-// Повторите поведение кнопки по нажатию на нее (она осуществляет обмен содержимым между двумя инпутами, можете понажимать на нее несколько раз или вручную сменить содержимое инпутов)
-function buttonClick() {
-    var input1 = document.getElementById("input1");
-    var input2 = document.getElementById("input2");
-
-    var item1 = input1.value;
-    var item2 = input2.value;
-    
-    input1.value = item2;
-    input2.value = item1;
-}
+function delete_item() {
+  let list = document.getElementById("list_item");
+  list.removeChild(list.firstElementChild);
+  }
