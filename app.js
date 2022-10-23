@@ -1,21 +1,63 @@
-// №1 дан массив. запишите первый элемент этого массива в переменную elem1, второй-в переменную elem2, третий - в переменную elem3, а все остальные в элементы массива - в переменную arr.
+// №1 реализуйте класс Worker (работник), который будет иметь следующие свойства: name (имя), surname(фамилия), rate(ставка за день работы),
+// days(количество отработанных дней). Также класс должен иметь метод getSalary(), который будет выводить зарплату работника.
+// Зарплата-это произведение (умножение) ставки rate на количество отработанных дней days.
 
-let m = ['розы ', 'пионы ', 'ромашки ', 'гвоздики ', 'тюльпаны ', 'лилии '];
-let [elem1, elem2, ...arr] = m;
-document.write( elem1 + ' | '+ elem2 + ' | ' +arr );
 
-// №2 дан массив. запишите последний элемент этого массива в переменную elem1, а предпоследний - в переменную elem2 (подсказка: используйте метод reverse () ).
+class Worker {
+    constructor(name, surname, rate, days) {
+        this.name = name;
+        this.surname = surname;
+        this.rate = rate;
+        this.days = days;
+    }
+    getSalary() {return this.rate * this.days;}
+}
+const worker = new Worker('Jack', 'Mett', 15, 20);
+console.log(worker.name);
+console.log(worker.surname);
+console.log(worker.rate);
+console.log(worker.days);
+console.log(worker.getSalary());
 
-let a = ['===', '++++', '????', '****', ' ~~~~'];
-a.reverse();
-let [Elem1, Elem2] = a;
-document.write( Elem1  + ' | '+  Elem2 );
 
-// №3. сделайте функцию, которая получает имя пользователя и выводит на экран 'Привет, Имя' (вместо Имя - полученное паратметром имя). По умолчанию (то есть если не передать параметр) функция должна выводить 'Привет, Аноним'.
 
-function func(non = 'Аноним') {
-	alert('Привет, '+ non );
+
+// №2 модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными, а для их чтения
+// сделайте методы-геттеры (подсказка используйте методы Get and Set)
+
+class WorkerTwo {
+    #name;
+    #surname;
+    #rate;
+    #days;
+    constructor(name, surname, rate, days) {
+        this.#name = name;
+        this.#surname = surname;
+        this.#rate = rate;
+        this.#days = days;
+    }
+    getName() {
+        return this.#name;
+    }
+    getSurname() {
+        return this.#surname;
+    }
+    getRate() {
+        return this.#rate;
+    }
+    getDays() {
+        return this.#days;
+    }
+    getSalary(rate, days) {
+        let salary = this.#rate * this.#days;
+        return salary;
+    }
 }
 
-let name = 'ИМЯ';
-func();
+workerTwo = new WorkerTwo('lora', 'Li', '8', '31');
+console.log(workerTwo.getName());
+console.log(workerTwo.getSurname());
+console.log(workerTwo.getRate());
+console.log(workerTwo.getDays());
+console.log(workerTwo.getSalary());
+
